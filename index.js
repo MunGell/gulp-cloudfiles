@@ -7,7 +7,7 @@ var pkgcloud = require('pkgcloud');
 
 
 module.exports = function (rackspace, options) {
-  var options = options || {};
+  options = options || {};
   var container = rackspace.container || options.container
 
   if (!rackspace) {
@@ -37,7 +37,7 @@ module.exports = function (rackspace, options) {
     }
 
     var uploadPath = file.path.replace(file.base, options.uploadPath || '').replace(/\\/g, '/');
-    var headers = {'x-amz-acl': 'public-read'};
+    var headers = {};
     if (options.headers) {
       for (var key in options.headers) {
         headers[key] = options.headers[key];
